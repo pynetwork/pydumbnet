@@ -12,6 +12,7 @@ IncludeDirs = []
 LibraryDirs = []
 
 if sys.platform == 'win32' or sys.platform == "nt":
+    # XXX this is currently broken.
     Libraries = ["ws2_32", "advapi32", "iphlpapi", "ws2_32", "packet"]
 
     class BuildExtension(build_ext):
