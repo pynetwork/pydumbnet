@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import sys
 
 from distutils.core import setup, Extension
@@ -10,6 +11,8 @@ dep = []
 Libraries = []
 IncludeDirs = []
 LibraryDirs = []
+
+include = "#include <dnet.h>"
 
 if sys.platform == 'win32' or sys.platform == "nt":
     # XXX this is currently broken.
@@ -73,6 +76,11 @@ if sys.platform == 'win32' or sys.platform == "nt":
 else:
     BuildExtension = build_ext
     Libraries = ["dnet"]
+    if os.path.isfile("/usr/include/dumbnet.h"):
+        include = "#include <dumbnet.h>"
+
+with open("dnet/dnet.h", "w+") as f:
+    f.write(include)
 
 dnet_extension = Extension('dnet',
                            src,
