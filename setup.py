@@ -78,6 +78,7 @@ else:
     Libraries = ["dnet"]
     if os.path.isfile("/usr/include/dumbnet.h"):
         include = "#include <dumbnet.h>"
+        Libraries = ["dumbnet"]
 
 with open("dnet/dnet.h", "w+") as f:
     f.write(include)
