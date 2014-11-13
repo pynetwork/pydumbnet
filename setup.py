@@ -91,8 +91,8 @@ dnet_extension = Extension('dnet',
                            library_dirs=LibraryDirs)
 
 setup(
-    name='dnet',
-    version='1.12',
+    name='pydumbnet',
+    version='1.12.1',
     packages=["dnet"],
     package_dir={"dnet": "dnet"},
     description='low-level networking library',
